@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+/* stylelint-disable-next-line at-rule-no-unknown */
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+html,
+body {
+    scroll-behavior: smooth;
+}
+
+/* Text Justify untuk semua paragraf dan deskripsi */
+p,
+.text-justify-content {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* Exception untuk text yang tidak perlu justify */
+.text-center p,
+.text-left p,
+.text-right p,
+button p,
+a p {
+    text-align: inherit;
+}
