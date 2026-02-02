@@ -10,7 +10,7 @@ const aboutData = {
         { label: "Email", value: "ptramichsthg@gmail.com", icon: "bx bx-envelope" },
         { label: "Phone", value: "+6285318386400", icon: "bx bx-phone" },
         { label: "Education", value: "Universitas Jenderal Achmad Yani", icon: "bx bx-book" },
-        { label: "GPA", value: "3.00 / 4.00 (Semester 5)", icon: "bx bx-award" },
+        { label: "GPA", value: "3.00 / 4.00", icon: "bx bx-award" },
     ],
 
     resume: {

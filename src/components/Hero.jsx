@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import homeData from "../data/homeData.jsx";
 import Tippy from '@tippyjs/react';
 import Swal from 'sweetalert2';
+import AnimatedButton from "./AnimatedButton.jsx";
 
 const Home = () => {
   const [currentText, setCurrentText] = useState("");
@@ -104,18 +105,19 @@ const Home = () => {
                   {btn.href && btn.href !== "#" ? (
                     <a
                       href={btn.href}
-                      className={`inline-flex items-center justify-center px-6 py-3 font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 ${btn.type === "primary"
-                        ? "bg-gray-800 dark:bg-white text-white dark:text-gray-800 hover:bg-gray-800 dark:hover:bg-gray-100"
-                        : "border-2 border-gray-800 dark:border-white text-gray-800 dark:text-white hover:bg-gray-800 hover:text-white dark:hover:bg-white dark:hover:text-gray-800"
-                        }`}
                       target={btn.href.startsWith("http") ? "_blank" : "_self"}
                       rel="noopener noreferrer"
                     >
-                      <i className={`bx ${btn.type === "primary" ? "bx-download" : "bx-envelope"} mr-2`} />
-                      {btn.label}
+                      <AnimatedButton
+                        variant={btn.type === "primary" ? "glow" : "secondary"}
+                        icon={`bx ${btn.type === "primary" ? "bx-download" : "bx-envelope"}`}
+                        className="w-full px-6 py-3"
+                      >
+                        {btn.label}
+                      </AnimatedButton>
                     </a>
                   ) : (
-                    <button
+                    <AnimatedButton
                       onClick={() =>
                         Swal.fire({
                           title: "Not Available Yet",
@@ -125,15 +127,12 @@ const Home = () => {
                           confirmButtonText: "Alright",
                         })
                       }
-                      className={`inline-flex items-center justify-center px-6 py-3 font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 ${btn.type === "primary"
-                        ? "bg-gray-800 dark:bg-white text-white dark:text-gray-800 hover:bg-gray-800 dark:hover:bg-gray-100"
-                        : "border-2 border-gray-800 dark:border-white text-gray-800 dark:text-white hover:bg-gray-800 hover:text-white dark:hover:bg-white dark:hover:text-gray-800"
-                        }`}
-                      aria-label={btn.label}
+                      variant={btn.type === "primary" ? "glow" : "secondary"}
+                      icon={`bx ${btn.type === "primary" ? "bx-download" : "bx-envelope"}`}
+                      className="px-6 py-3"
                     >
-                      <i className={`bx ${btn.type === "primary" ? "bx-download" : "bx-envelope"} mr-2`} />
                       {btn.label}
-                    </button>
+                    </AnimatedButton>
                   )}
                 </Tippy>
 

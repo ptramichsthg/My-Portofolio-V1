@@ -1,6 +1,7 @@
 import aboutData from "../data/aboutData.jsx";
 import Tippy from '@tippyjs/react';
 import Swal from 'sweetalert2';
+import AnimatedButton from "./AnimatedButton.jsx";
 
 
 const About = () => {
@@ -89,24 +90,26 @@ const About = () => {
 
 
 
-                        <Tippy content="Download My Resume">
-                            <button
-                                onClick={() => {
-                                    Swal.fire({
-                                        title: "Not Available Yet",
-                                        text: "My resume is still in progress. Please check back later!",
-                                        icon: "info",
-                                        confirmButtonColor: "#1F2937",
-                                        confirmButtonText: "Alright",
-                                    });
-                                }}
-                                className={resumeButtonClasses}
-                                aria-label="Download Resume"
-                            >
-                                <i className={`${aboutData.resume.icon} text-lg mr-2`} aria-hidden="true"></i>
-                                {aboutData.resume.label}
-                            </button>
-                        </Tippy>
+                        <div className="flex justify-center lg:justify-start mt-6">
+                            <Tippy content="Download My Resume">
+                                <AnimatedButton
+                                    onClick={() => {
+                                        Swal.fire({
+                                            title: "Not Available Yet",
+                                            text: "My resume is still in progress. Please check back later!",
+                                            icon: "info",
+                                            confirmButtonColor: "#1F2937",
+                                            confirmButtonText: "Alright",
+                                        });
+                                    }}
+                                    variant="glow"
+                                    icon={aboutData.resume.icon}
+                                    className="px-6 py-3"
+                                >
+                                    {aboutData.resume.label}
+                                </AnimatedButton>
+                            </Tippy>
+                        </div>
                     </div>
                 </div>
             </div>

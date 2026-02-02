@@ -20,18 +20,18 @@ const educationData = {
             id: 1,
             title: "Belajar Back-End Pemula dengan JavaScript",
             issuer: "Dicoding Indonesia",
-            date: "2024",
-            credentialUrl: "#",
-            image: "/assets/cert1.jpg",
+            date: "27 Desember 2025",
+            credentialUrl: "https://www.dicoding.com/certificates/1RXYQR0WKZVM",
+            image: "/assets/cert-backend-js.png",
             icon: "bx bxl-javascript"
         },
         {
             id: 2,
             title: "Belajar Membuat Front-End Web untuk Pemula",
             issuer: "Dicoding Indonesia",
-            date: "2024",
-            credentialUrl: "#",
-            image: "/assets/cert2.jpg",
+            date: "19 Juli 2025",
+            credentialUrl: "https://www.dicoding.com/certificates/NVP7JG7DOXR0",
+            image: "/assets/cert-frontend-web.png",
             icon: "bx bx-code-alt"
         },
         {

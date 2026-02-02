@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import navbarData from "../data/navbarData.jsx";
+import AnimatedButton from "./AnimatedButton.jsx";
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -158,23 +159,21 @@ const Navbar = () => {
                                 </ul>
 
                                 {/* Desktop Dark Mode Toggle */}
-                                <button
+                                <AnimatedButton
                                     onClick={toggleDarkMode}
-                                    className="flex items-center justify-center w-9 h-9 lg:w-10 lg:h-10 rounded-lg text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200"
-                                    aria-label="Toggle dark mode"
-                                >
-                                    <i className={`bx ${isDarkMode ? 'bx-sun' : 'bx-moon'} text-xl lg:text-2xl`}></i>
-                                </button>
+                                    variant="secondary"
+                                    icon={`bx ${isDarkMode ? 'bx-sun' : 'bx-moon'}`}
+                                    className="!w-9 !h-9 lg:!w-10 lg:!h-10 !p-0"
+                                />
                             </div>
 
                             {/* Mobile Menu Button */}
-                            <button
-                                className="md:hidden text-gray-800 dark:text-white focus:outline-none p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200"
+                            <AnimatedButton
                                 onClick={toggleMenu}
-                                aria-label="Toggle menu"
-                            >
-                                <i className={`bx ${isMenuOpen ? 'bx-x' : 'bx-menu'} text-2xl`}></i>
-                            </button>
+                                variant="secondary"
+                                icon={`bx ${isMenuOpen ? 'bx-x' : 'bx-menu'}`}
+                                className="md:hidden !p-2"
+                            />
                         </div>
                     </div>
                 </div>
@@ -201,13 +200,12 @@ const Navbar = () => {
                             <i className="bx bx-code-alt text-2xl text-gray-800 dark:text-white"></i>
                             <h2 className="text-lg font-semibold text-gray-800 dark:text-white">Navigation</h2>
                         </div>
-                        <button
-                            className="text-gray-800 dark:text-white focus:outline-none hover:bg-gray-100 dark:hover:bg-gray-700 p-2 rounded-lg transition-colors duration-200"
+                        <AnimatedButton
                             onClick={toggleMenu}
-                            aria-label="Close menu"
-                        >
-                            <i className="bx bx-x text-2xl"></i>
-                        </button>
+                            variant="secondary"
+                            icon="bx bx-x"
+                            className="!p-2"
+                        />
                     </div>
 
                     {/* Menu Items */}
@@ -239,14 +237,14 @@ const Navbar = () => {
 
                             {/* Mobile Dark Mode Toggle */}
                             <li className="mt-2">
-                                <button
+                                <AnimatedButton
                                     onClick={toggleDarkMode}
-                                    className="w-full flex items-center gap-3 text-base sm:text-lg font-medium px-4 py-3 rounded-lg transition-all duration-200 text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700"
-                                    aria-label="Toggle dark mode"
+                                    variant="navigation"
+                                    icon={`bx ${isDarkMode ? 'bx-sun' : 'bx-moon'}`}
+                                    className="w-full px-4 py-3"
                                 >
-                                    <i className={`bx ${isDarkMode ? 'bx-sun' : 'bx-moon'} text-xl`}></i>
-                                    <span>{isDarkMode ? 'Light Mode' : 'Dark Mode'}</span>
-                                </button>
+                                    {isDarkMode ? 'Light Mode' : 'Dark Mode'}
+                                </AnimatedButton>
                             </li>
                         </ul>
                     </div>

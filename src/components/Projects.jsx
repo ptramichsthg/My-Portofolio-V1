@@ -1,6 +1,7 @@
 import { useState } from "react";
 import projectsData from "../data/projectsData.jsx";
 import Swal from "sweetalert2";
+import AnimatedButton from "./AnimatedButton.jsx";
 
 const Projects = () => {
     const [activeCategory, setActiveCategory] = useState("All");
@@ -42,16 +43,15 @@ const Projects = () => {
                 {/* Category Filter */}
                 <div className="flex flex-wrap justify-center gap-3 mb-12" data-aos="fade-up">
                     {projectsData.categories.map((category, index) => (
-                        <button
+                        <AnimatedButton
                             key={index}
                             onClick={() => setActiveCategory(category)}
-                            className={`px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-medium transition-all duration-300 ${activeCategory === category
-                                ? "bg-gray-800 dark:bg-white text-white dark:text-gray-800 shadow-lg scale-105"
-                                : "bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-600"
-                                }`}
+                            variant="navigation"
+                            active={activeCategory === category}
+                            className="px-4 sm:px-6 py-2.5 sm:py-3"
                         >
                             {category}
-                        </button>
+                        </AnimatedButton>
                     ))}
                 </div>
 
@@ -66,25 +66,34 @@ const Projects = () => {
                         >
                             {/* Project Image */}
                             <div className="relative h-48 bg-gradient-to-br from-gray-800 to-gray-600 dark:from-gray-700 dark:to-gray-900 overflow-hidden group">
-                                <div className="absolute inset-0 flex items-center justify-center">
+                                {/* Background Image */}
+                                <img
+                                    src={project.image}
+                                    alt={project.title}
+                                    className="w-full h-full object-cover"
+                                    onError={(e) => {
+                                        e.target.style.display = 'none';
+                                        e.target.nextElementSibling.style.display = 'flex';
+                                    }}
+                                />
+                                {/* Fallback Icon */}
+                                <div className="absolute inset-0 hidden items-center justify-center">
                                     <i className="bx bx-image text-6xl text-white opacity-30"></i>
                                 </div>
                                 {/* Overlay on hover */}
                                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100">
-                                    <button
+                                    <AnimatedButton
                                         onClick={() => handleLinkClick(project.liveUrl, "Live Demo")}
-                                        className="w-12 h-12 bg-white text-gray-800 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-200"
-                                        title="View Live"
-                                    >
-                                        <i className="bx bx-link-external text-xl"></i>
-                                    </button>
-                                    <button
+                                        variant="magnetic"
+                                        className="animated-btn-overlay"
+                                        icon="bx bx-link-external"
+                                    />
+                                    <AnimatedButton
                                         onClick={() => handleLinkClick(project.githubUrl, "GitHub Repository")}
-                                        className="w-12 h-12 bg-white text-gray-800 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-200"
-                                        title="View Code"
-                                    >
-                                        <i className="bx bxl-github text-xl"></i>
-                                    </button>
+                                        variant="magnetic"
+                                        className="animated-btn-overlay"
+                                        icon="bx bxl-github"
+                                    />
                                 </div>
                             </div>
 
@@ -144,20 +153,22 @@ const Projects = () => {
 
                                 {/* Action Buttons */}
                                 <div className="flex gap-3">
-                                    <button
+                                    <AnimatedButton
                                         onClick={() => handleLinkClick(project.liveUrl, "Live Demo")}
-                                        className="flex-1 px-4 py-2 bg-gray-800 dark:bg-white text-white dark:text-gray-800 text-sm font-medium rounded-lg hover:bg-gray-700 dark:hover:bg-gray-100 transition-colors duration-200"
+                                        variant="glow"
+                                        icon="bx bx-link-external"
+                                        className="flex-1 text-sm"
                                     >
-                                        <i className="bx bx-link-external mr-1"></i>
                                         Live Demo
-                                    </button>
-                                    <button
+                                    </AnimatedButton>
+                                    <AnimatedButton
                                         onClick={() => handleLinkClick(project.githubUrl, "GitHub Repository")}
-                                        className="flex-1 px-4 py-2 border-2 border-gray-800 dark:border-white text-gray-800 dark:text-white text-sm font-medium rounded-lg hover:bg-gray-800 hover:text-white dark:hover:bg-white dark:hover:text-gray-800 transition-colors duration-200"
+                                        variant="secondary"
+                                        icon="bx bxl-github"
+                                        className="flex-1 text-sm"
                                     >
-                                        <i className="bx bxl-github mr-1"></i>
                                         Code
-                                    </button>
+                                    </AnimatedButton>
                                 </div>
                             </div>
                         </div>

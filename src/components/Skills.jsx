@@ -1,5 +1,6 @@
 import { useState } from "react";
 import skillsData from "../data/skillsData.jsx";
+import AnimatedButton from "./AnimatedButton.jsx";
 
 const Skills = () => {
     const [activeCategory, setActiveCategory] = useState(0);
@@ -23,17 +24,16 @@ const Skills = () => {
                 {/* Category Tabs */}
                 <div className="flex flex-wrap justify-center gap-3 mb-12" data-aos="fade-up">
                     {skillsData.categories.map((category, index) => (
-                        <button
+                        <AnimatedButton
                             key={index}
                             onClick={() => setActiveCategory(index)}
-                            className={`flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-medium transition-all duration-300 ${activeCategory === index
-                                ? "bg-gray-800 dark:bg-white text-white dark:text-gray-800 shadow-lg scale-105"
-                                : "bg-white dark:bg-gray-800 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 shadow"
-                                }`}
+                            variant="navigation"
+                            active={activeCategory === index}
+                            icon={category.icon}
+                            className="px-4 sm:px-6 py-2.5 sm:py-3"
                         >
-                            <i className={`${category.icon} text-lg sm:text-xl`}></i>
-                            <span className="text-sm sm:text-base">{category.name}</span>
-                        </button>
+                            {category.name}
+                        </AnimatedButton>
                     ))}
                 </div>
 

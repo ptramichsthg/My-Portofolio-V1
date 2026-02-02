@@ -1,6 +1,7 @@
 import footerData from "../data/footerData.jsx";
 import Tippy from '@tippyjs/react';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import AnimatedButton from "./AnimatedButton.jsx";
 
 const Footer = () => {
   return (
@@ -77,8 +78,7 @@ const Footer = () => {
               className="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white"
             />
             <Tippy content="Subscribe to my newsletter!">
-              <button
-                type="button"
+              <AnimatedButton
                 onClick={() => {
                   Swal.fire({
                     title: "Coming Soon!",
@@ -88,11 +88,12 @@ const Footer = () => {
                     confirmButtonText: "Alright!",
                   });
                 }}
-                className="px-4 py-3 bg-gray-800 shadow-lg text-white dark:bg-white dark:text-gray-800 rounded-lg font-medium flex items-center justify-center gap-2 transition-all transform hover:-translate-y-1 leading-none text-base"
+                variant="glow"
+                icon="bx bx-send"
+                className="w-full px-4 py-3"
               >
                 {footerData.formSubscription.buttonText}
-                <i className="bx bx-send text-[1.2rem] translate-y-[1px]" />
-              </button>
+              </AnimatedButton>
             </Tippy>
 
 

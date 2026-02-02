@@ -2,6 +2,7 @@ import { useState } from "react";
 import contactData from "../data/contactData.jsx";
 import Tippy from '@tippyjs/react';
 import Swal from 'sweetalert2';
+import AnimatedButton from "./AnimatedButton.jsx";
 
 const Contact = () => {
   const [activeTab, setActiveTab] = useState("contact");
@@ -21,17 +22,16 @@ const Contact = () => {
             { value: "contact", label: "Contact Me", icon: "bx bx-envelope" },
             { value: "support", label: "Support Me", icon: "bx bx-heart" },
           ].map((tab) => (
-            <button
+            <AnimatedButton
               key={tab.value}
               onClick={() => setActiveTab(tab.value)}
-              className={`flex items-center gap-2 px-5 py-3 rounded-lg shadow-lg text-sm font-medium transition-all ${activeTab === tab.value
-                ? "bg-gray-800 text-white dark:bg-white dark:text-gray-800"
-                : "bg-white text-gray-800 dark:bg-gray-800 dark:text-white border border-white"
-                }`}
+              variant="navigation"
+              active={activeTab === tab.value}
+              icon={tab.icon}
+              className="px-5 py-3 text-sm"
             >
-              <i className={tab.icon}></i>
               {tab.label}
-            </button>
+            </AnimatedButton>
           ))}
         </div>
 

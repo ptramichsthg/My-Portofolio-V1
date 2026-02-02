@@ -17,8 +17,8 @@ const projectsData = {
                 "Interview scheduling bot",
                 "Skills matching algorithm"
             ],
-            liveUrl: "https://ai-screening-henna.vercel.app/",
-            githubUrl: "#"
+            liveUrl: "https://ai-screen-gamma.vercel.app/",
+            githubUrl: "https://github.com/ptramichsthg/Ai-Screen"
         },
         {
             id: 2,
@@ -122,7 +122,7 @@ const projectsData = {
             id: 8,
             title: "Velvet Voyage - Travel Platform",
             description: "Premium travel and tour booking platform with modern design and seamless user experience.",
-            image: "/assets/project8.jpg",
+            image: "/assets/project8.png",
             category: "Website",
             technologies: ["Next.js", "Tailwind CSS", "Vercel"],
             features: [
@@ -295,6 +295,22 @@ const projectsData = {
             ],
             liveUrl: "#",
             githubUrl: "https://github.com/ptramichsthg/kedai-kopi-pariban"
+        },
+        {
+            id: 19,
+            title: "EComputer Blog",
+            description: "Technology blog website featuring articles about computers, hardware, software, and tech news. Built with vanilla HTML, CSS, and JavaScript.",
+            image: "/assets/project19.jpg",
+            category: "Website",
+            technologies: ["HTML", "CSS", "JavaScript"],
+            features: [
+                "Blog article system",
+                "Tech news and reviews",
+                "Responsive design",
+                "Interactive UI"
+            ],
+            liveUrl: "https://ecomputer.netlify.app/",
+            githubUrl: "https://github.com/ptramichsthg/EComputer-Blog.git"
         }
     ],
 

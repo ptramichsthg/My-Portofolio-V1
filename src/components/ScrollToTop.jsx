@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import AnimatedButton from "./AnimatedButton.jsx";
 
 const ScrollToTop = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -18,13 +19,14 @@ const ScrollToTop = () => {
 
     return (
         isVisible && (
-            <button
-                onClick={scrollToTop}
-                className="fixed bottom-6 right-6 z-50 w-15 h-15 flex items-center drop-shadow-2xl justify-center rounded-full bg-gray-800 text-white dark:bg-white dark:text-gray-800 shadow-lg  transition-all hover:scale-103"
-                aria-label="Scroll to Top"
-            >
-                <i className="bx bx-chevron-up text-2xl" />
-            </button>
+            <div className="fixed bottom-6 right-6 z-50">
+                <AnimatedButton
+                    onClick={scrollToTop}
+                    variant="magnetic"
+                    icon="bx bx-chevron-up"
+                    className="!w-14 !h-14 !p-0 !rounded-full drop-shadow-2xl"
+                />
+            </div>
 
         )
     );
