@@ -13,13 +13,9 @@
   buttons: [
     {
       label: "Explore My Project",
-      href: "#",
+      href: "#projects",
       type: "primary",
-    },
-    {
-      label: "Download My CV",
-      href: "#",
-      type: "secondary",
+
     },
   ],
   floatingIcons: [

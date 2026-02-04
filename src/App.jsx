@@ -12,6 +12,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
+
 function App() {
   useEffect(() => {
     AOS.init({
@@ -23,7 +24,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div className="bg-grid-pattern min-h-screen text-white">
       <Navbar />
       <Home />
       <About />
@@ -34,7 +35,7 @@ function App() {
       <Contact />
       <Footer />
       <ScrollToTop />
-    </>
+    </div>
   )
 }
 

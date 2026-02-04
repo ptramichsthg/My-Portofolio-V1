@@ -48,17 +48,21 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="min-h-screen bg-white dark:bg-gray-800 pt-20 overflow-hidden"
+      className="relative min-h-screen pt-20 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Accent Glow Effects */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-5rem)] py-12">
           <div className="space-y-8" data-aos="fade-right">
             <div className="space-y-4">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-800 dark:text-white flex items-center gap-3">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white flex items-center gap-3">
                 {homeData.title}
                 <i className="bx bx-hand text-4xl sm:text-5xl lg:text-6xl animate-wave"></i>
               </h1>
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-800 dark:text-white flex items-center">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-white flex items-center">
                 <span className="typing-text">
                   {currentText}
                   <span
@@ -72,12 +76,12 @@ const Home = () => {
             </div>
 
 
-            <p className="text-lg text-gray-800 dark:text-white leading-relaxed max-w-lg">
+            <p className="text-lg text-white leading-relaxed max-w-lg">
               {homeData.description}
             </p>
 
             <div className="flex items-center space-x-4">
-              <span className="text-gray-800 dark:text-white font-medium">
+              <span className="text-white font-medium">
                 Follow me on:
               </span>
               <div className="flex space-x-3">
@@ -87,10 +91,10 @@ const Home = () => {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 bg-gray-800 text-white dark:bg-white rounded-full flex items-center shadow-2xl justify-center dark:text-gray-800 hover:text-white dark:hover:bg-white dark:hover:text-gray-800 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                      className="w-12 h-12 bg-white/15 border border-white/30 text-white rounded-full flex items-center shadow-2xl justify-center hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:border-transparent transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
                       aria-label={`Visit ${social.platform}`}
                     >
-                      <i className={`${social.icon} text-lg`}></i>
+                      <i className={`${social.icon} text-xl`}></i>
                     </a>
                   </Tippy>
                 ))}
@@ -142,26 +146,26 @@ const Home = () => {
 
 
             {/* Quick Stats Heading */}
-            <h4 className="flex items-center gap-2 text-lg font-semibold mb-4 text-gray-800 dark:text-white">
-              <i className="bx bx-bar-chart-alt text-base" />
-              Quick Stats:
+            <h4 className="flex items-center gap-2 text-lg font-semibold mb-6 text-white">
+              <i className="bx bx-bar-chart-alt-2 text-2xl" />
+              Quick Stats
             </h4>
 
             {/* Stats Grid */}
             <div
-              className="grid grid-cols-2 sm:grid-cols-4 text-sm text-gray-800 dark:text-white gap-6 mt-2"
+              className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-2"
             >
               {homeData.stats.map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-2 bg-gray-800 dark:bg-white transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg shadow-lg p-2 rounded-3xl"
+                  className="flex flex-col items-center text-center gap-2.5 bg-gradient-to-br from-white/20 to-white/10 border-2 border-white/30 backdrop-blur-md transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/30 hover:border-blue-400/50 shadow-xl p-3 rounded-xl group"
                 >
-                  <div className="text-base text-white dark:text-gray-800">
-                    <i className={item.icon}></i>
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <i className={`${item.icon} text-xl text-white`}></i>
                   </div>
                   <div>
-                    <p className="font-bold text-white dark:text-gray-800">{item.value}</p>
-                    <p className="text-xs text-white dark:text-gray-800">{item.label}</p>
+                    <p className="font-bold text-white text-lg mb-1 group-hover:text-blue-300 transition-colors">{item.value}</p>
+                    <p className="text-xs text-gray-300 font-medium leading-tight">{item.label}</p>
                   </div>
                 </div>
               ))}
@@ -196,12 +200,12 @@ const Home = () => {
                 >
                   <div
                     className={`absolute ${positions[index % positions.length]
-                      } w-12 h-12 sm:w-16 sm:h-16 bg-gray-800 text-white dark:bg-white dark:text-gray-800 dark:border  rounded-full drop-shadow-2xl shadow-lg dark:shadow-gray-800 flex items-center justify-center hover:scale-110 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 animate-float cursor-pointer`}
+                      } w-14 h-14 sm:w-18 sm:h-18 bg-gradient-to-br from-white/20 to-white/10 border-2 border-white/40 text-white rounded-2xl drop-shadow-2xl shadow-xl hover:shadow-2xl flex items-center justify-center hover:scale-110 hover:from-blue-500/30 hover:to-purple-500/30 hover:border-blue-400/60 hover:-translate-y-2 transition-all duration-300 animate-float cursor-pointer backdrop-blur-sm`}
                     style={{
                       animationDelay: `${index * 0.5}s`,
                     }}
                   >
-                    <i className={`${tech.icon} text-xl sm:text-2xl`}></i>
+                    <i className={`${tech.icon} text-2xl sm:text-3xl`}></i>
                   </div>
                 </Tippy>
               );
@@ -257,9 +261,6 @@ const Home = () => {
           }
           .cursor {
             font-weight: 600;
-            color: #1f2937;
-          }
-          .dark .cursor {
             color: #d1d5db;
           }
         `}</style>

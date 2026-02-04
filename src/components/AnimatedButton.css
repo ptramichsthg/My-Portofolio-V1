@@ -93,53 +93,57 @@
 
 /* Primary Variant */
 .animated-btn-primary {
-    background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
     color: white;
-    box-shadow: 0 4px 15px rgba(31, 41, 55, 0.4);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
 }
 
 .animated-btn-primary:hover {
-    background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
-    box-shadow: 0 6px 20px rgba(31, 41, 55, 0.6);
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+    box-shadow: 0 6px 25px rgba(59, 130, 246, 0.6);
     transform: translateY(-2px);
 }
 
 /* Dark mode support */
 :root.dark .animated-btn-primary {
-    background: linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%);
-    color: #1f2937;
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
 }
 
 :root.dark .animated-btn-primary:hover {
-    background: linear-gradient(135deg, #f9fafb 0%, #e5e7eb 100%);
-    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+    box-shadow: 0 6px 25px rgba(59, 130, 246, 0.6);
 }
 
 /* Secondary Variant */
 .animated-btn-secondary {
-    background: transparent;
-    color: #1f2937;
-    border: 2px solid #1f2937;
-    box-shadow: 0 0 0 rgba(31, 41, 55, 0);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
 }
 
 .animated-btn-secondary:hover {
-    background: #1f2937;
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
     color: white;
-    box-shadow: 0 4px 15px rgba(31, 41, 55, 0.4);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
 }
 
 :root.dark .animated-btn-secondary {
+    background: rgba(255, 255, 255, 0.15);
     color: white;
-    border-color: white;
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 :root.dark .animated-btn-secondary:hover {
-    background: white;
-    color: #1f2937;
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: white;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
 }
 
 /* Gradient Variant */
@@ -263,46 +267,56 @@
 
 /* Navigation Variant (Navbar Style) */
 .animated-btn-navigation {
-    background: transparent;
-    color: #1f2937;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
     box-shadow: none;
     padding: 0.625rem 1rem;
+    backdrop-filter: blur(10px);
 }
 
 .animated-btn-navigation:hover {
-    background: #f3f4f6;
-    color: #2563eb;
-    transform: translateY(0);
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    transform: translateY(-1px);
 }
 
 .animated-btn-navigation.active {
-    background: #1f2937;
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    border-color: transparent;
     color: white;
-    box-shadow: 0 4px 15px rgba(31, 41, 55, 0.4);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
 }
 
 .animated-btn-navigation.active:hover {
-    background: #374151;
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
 }
 
 /* Dark mode for navigation variant */
 :root.dark .animated-btn-navigation {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
     color: white;
 }
 
 :root.dark .animated-btn-navigation:hover {
-    background: #374151;
-    color: #60a5fa;
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
 }
 
 :root.dark .animated-btn-navigation.active {
-    background: white;
-    color: #1f2937;
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    border-color: transparent;
+    color: white;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
 }
 
 :root.dark .animated-btn-navigation.active:hover {
-    background: #f3f4f6;
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
 }
 
 /* Hover Image Buttons (for overlay buttons) */

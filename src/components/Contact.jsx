@@ -8,16 +8,21 @@ const Contact = () => {
   const [activeTab, setActiveTab] = useState("contact");
 
   return (
-    <section id="contact" className="min-h-screen pb-20 bg-white dark:bg-gray-800 pt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="relative min-h-screen pb-20 pt-20 overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute top-20 left-0 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl animate-pulse pointer-events-none"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-pulse pointer-events-none" style={{ animationDelay: '1s' }}></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title & Subtitle */}
-        <div className="text-center mb-12 text-gray-800" data-aos="fade-down">
-          <h2 className="text-5xl font-bold dark:text-white mb-2">{contactData.title}</h2>
-          <p className="text-lg dark:text-gray-400">{contactData.subtitle}</p>
+        <div className="text-center mb-12" data-aos="fade-down">
+          <h2 className="text-5xl font-bold text-white mb-2 drop-shadow-lg">{contactData.title}</h2>
+          <p className="text-lg text-gray-300">{contactData.subtitle}</p>
         </div>
 
         {/* Tabs Menu */}
-        <div className="flex justify-center mb-8 gap-4 flex-wrap">
+        <div className="flex justify-center mb-12 gap-4 flex-wrap" data-aos="fade-up">
           {[
             { value: "contact", label: "Contact Me", icon: "bx bx-envelope" },
             { value: "support", label: "Support Me", icon: "bx bx-heart" },
@@ -28,7 +33,7 @@ const Contact = () => {
               variant="navigation"
               active={activeTab === tab.value}
               icon={tab.icon}
-              className="px-5 py-3 text-sm"
+              className="px-6 py-3 text-sm"
             >
               {tab.label}
             </AnimatedButton>
@@ -40,97 +45,132 @@ const Contact = () => {
           {activeTab === "contact" && (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* Left Side: Social Links */}
-              <div className="grid gap-4 max-w-xl mx-auto lg:mx-0">
+              <div className="grid gap-5 max-w-xl mx-auto lg:mx-0">
                 {contactData.socials.map((item, index) => (
                   <a
                     key={index}
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between gap-4 px-7 w-full  py-7 border border-white rounded-lg shadow-lg dark:bg-gray-800 text-gray-800 dark:text-white hover:shadow-lg hover:-translate-y-1 transition-all"
+                    className="group relative flex items-center justify-between gap-4 px-7 w-full py-7 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-xl hover:shadow-2xl hover:bg-white/10 hover:border-white/20 hover:-translate-y-2 transition-all duration-300"
                     aria-label={item.label}
+                    data-aos="fade-right"
+                    data-aos-delay={index * 100}
                   >
-                    <div className="flex items-start gap-4">
-                      <div className="w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-gray-800 text-white dark:bg-white dark:text-gray-800 shrink-0">
-                        <i className={`${item.icon} text-xl`} />
+                    {/* Hover Glow Effect */}
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:to-purple-500/10 transition-all duration-300 pointer-events-none"></div>
+
+                    <div className="relative flex items-start gap-4 z-10">
+                      <div className="w-16 h-16 flex items-center justify-center shadow-2xl rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 text-white shrink-0 group-hover:scale-110 transition-transform duration-300">
+                        <i className={`${item.icon} text-2xl`} />
                       </div>
                       <div className="flex flex-col overflow-hidden">
-                        <span className="font-semibold text-2xl leading-tight">{item.label}</span>
-                        <span className="text-sm text-gray-800 dark:text-white leading-snug">
+                        <span className="font-bold text-2xl leading-tight text-white group-hover:text-blue-300 transition-colors">{item.label}</span>
+                        <span className="text-sm text-gray-300 leading-snug mt-1">
                           {item.description}
                         </span>
                       </div>
                     </div>
-                    <i className="bx bx-chevron-right text-2xl text-gray-800 dark:text-white" />
+                    <i className="relative z-10 bx bx-chevron-right text-3xl text-white/60 group-hover:text-white group-hover:translate-x-1 transition-all" />
                   </a>
                 ))}
               </div>
 
               {/* Right Side: Contact Form */}
-              <div className="rounded-lg py-12 px-7 shadow-lg border h-fit border-white max-w-xl w-full mx-auto lg:mx-0">
-                <h3 className="text-xl font-semibold mb-6 text-gray-800 dark:text-white flex items-center gap-2">
-                  <i className="bx bx-envelope text-lg" />
-                  Send Me a Message
-                </h3>
-                <form className="grid gap-4">
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    className="p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-white text-sm focus:outline-none focus:ring-2 focus:ring-gray-800"
-                  />
-                  <input
-                    type="email"
-                    placeholder="Your Email"
-                    className="p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-white text-sm focus:outline-none focus:ring-2 focus:ring-gray-800"
-                  />
-                  <textarea
-                    placeholder="Your Message"
-                    className="p-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-white text-sm focus:outline-none focus:ring-2 focus:ring-gray-800"
-                    rows="5"
-                  />
-                  <Tippy content="Send your message" placement="top">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        Swal.fire({
-                          title: "Message Sent!",
-                          text: "Thank you for reaching out. I’ll get back to you soon!",
-                          icon: "success",
-                          confirmButtonColor: "#1F2937",
-                          confirmButtonText: "Okay",
-                        });
-                      }}
-                      className="px-4 py-3 bg-gray-800 text-white dark:bg-white dark:text-gray-800 rounded-lg font-medium flex items-center justify-center gap-2 transition-all transform hover:-translate-y-1"
-                    >
-                      Send
-                      <i className="bx bx-send text-[1.2rem] translate-y-[1px]" />
-                    </button>
-                  </Tippy>
-                </form>
+              <div
+                className="relative rounded-2xl py-12 px-7 bg-white/5 backdrop-blur-md border border-white/10 shadow-2xl h-fit max-w-xl w-full mx-auto lg:mx-0"
+                data-aos="fade-left"
+              >
+                {/* Card Glow */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-2xl blur-xl opacity-50"></div>
+
+                <div className="relative">
+                  <h3 className="text-2xl font-bold mb-6 text-white flex items-center gap-3">
+                    <i className="bx bx-envelope text-2xl bg-gradient-to-br from-blue-500 to-purple-500 bg-clip-text text-transparent" />
+                    Send Me a Message
+                  </h3>
+                  <form className="grid gap-5">
+                    <div className="relative group">
+                      <i className="bx bx-user absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl group-focus-within:text-blue-400 transition-colors"></i>
+                      <input
+                        type="text"
+                        placeholder="Your Name"
+                        className="w-full pl-12 pr-4 py-4 rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm text-white placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                      />
+                    </div>
+                    <div className="relative group">
+                      <i className="bx bx-envelope absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl group-focus-within:text-blue-400 transition-colors"></i>
+                      <input
+                        type="email"
+                        placeholder="Your Email"
+                        className="w-full pl-12 pr-4 py-4 rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm text-white placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                      />
+                    </div>
+                    <div className="relative group">
+                      <i className="bx bx-message-square-dots absolute left-4 top-6 text-gray-400 text-xl group-focus-within:text-blue-400 transition-colors"></i>
+                      <textarea
+                        placeholder="Your Message"
+                        className="w-full pl-12 pr-4 py-4 rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm text-white placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
+                        rows="5"
+                      />
+                    </div>
+                    <Tippy content="Send your message" placement="top">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          Swal.fire({
+                            title: "Message Sent!",
+                            text: "Thank you for reaching out. I'll get back to you soon!",
+                            icon: "success",
+                            confirmButtonColor: "#3B82F6",
+                            confirmButtonText: "Okay",
+                          });
+                        }}
+                        className="relative px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold flex items-center justify-center gap-3 transition-all transform hover:scale-105 hover:shadow-2xl hover:from-blue-500 hover:to-purple-500 group overflow-hidden"
+                      >
+                        <span className="relative z-10 flex items-center gap-3">
+                          Send Message
+                          <i className="bx bx-send text-xl group-hover:translate-x-1 transition-transform" />
+                        </span>
+                        {/* Shimmer Effect */}
+                        <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+                      </button>
+                    </Tippy>
+                  </form>
+                </div>
               </div>
             </div>
           )}
 
           {activeTab === "support" && (
-            <div className="grid gap-4 max-w-xl mx-auto">
+            <div className="grid gap-6 max-w-xl mx-auto">
               {contactData.supportPlatforms.map((item, index) => (
                 <div
                   key={index}
-                  className="bg-white dark:bg-gray-800 border border-white rounded-lg p-6 shadow-lg hover:-translate-y-1 transition-transform max-w-xl mx-auto"
+                  className="relative bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 shadow-2xl hover:-translate-y-2 hover:bg-white/10 hover:border-white/20 transition-all duration-300 max-w-xl mx-auto"
+                  data-aos="zoom-in"
+                  data-aos-delay={index * 100}
                 >
+                  {/* Card Glow */}
+                  <div className="absolute -inset-1 bg-gradient-to-r from-pink-600/20 to-red-600/20 rounded-2xl blur-xl opacity-50"></div>
+
                   {item.type === "image" ? (
-                    <div className="flex flex-col items-center text-center">
-                      <h4 className="text-lg font-bold text-gray-800 dark:text-white mb-2">
+                    <div className="relative flex flex-col items-center text-center">
+                      <i className="bx bx-heart text-5xl bg-gradient-to-br from-pink-500 to-red-500 bg-clip-text text-transparent mb-4"></i>
+                      <h4 className="text-2xl font-bold text-white mb-3">
                         {item.label}
                       </h4>
-                      <p className="text-sm text-gray-800 dark:text-white mb-4 leading-relaxed">
+                      <p className="text-sm text-gray-300 mb-6 leading-relaxed">
                         If my work has helped or inspired you, consider supporting me by scanning the QR code below. Every little bit means a lot!
                       </p>
-                      <img
-                        src={item.imageSrc}
-                        alt={item.alt}
-                        className="w-full h-auto rounded-lg shadow-lg"
-                      />
+                      <div className="relative group">
+                        <div className="absolute -inset-2 bg-gradient-to-r from-pink-500 to-red-500 rounded-xl blur opacity-25 group-hover:opacity-50 transition"></div>
+                        <img
+                          src={item.imageSrc}
+                          alt={item.alt}
+                          className="relative w-full h-auto rounded-xl shadow-2xl border border-white/20"
+                        />
+                      </div>
                     </div>
                   ) : null}
                 </div>

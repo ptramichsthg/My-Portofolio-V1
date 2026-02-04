@@ -238,7 +238,7 @@ const projectsData = {
             description: "Hotel reservation system built with Java. Features room booking, check-in/check-out management, and guest information handling.",
             image: "/assets/project15.jpg",
             category: "Web App",
-            technologies: ["Java", "MySQL", "HTML", "CSS"],
+            technologies: ["Laravel", "MySQL", "HTML", "CSS"],
             features: [
                 "Room booking system",
                 "Guest management",

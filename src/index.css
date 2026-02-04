@@ -1,12 +1,28 @@
 @import "tailwindcss";
 
-/* stylelint-disable-next-line at-rule-no-unknown */
-@custom-variant dark (&:where(.dark, .dark *));
-
 
 html,
 body {
     scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Headings use Space Grotesk */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Code and technical text use JetBrains Mono */
+code,
+pre,
+kbd,
+samp {
+    font-family: 'JetBrains Mono', monospace;
 }
 
 /* Text Justify untuk semua paragraf dan deskripsi */
@@ -23,4 +39,13 @@ p,
 button p,
 a p {
     text-align: inherit;
+}
+
+.bg-grid-pattern {
+    background-color: #030014;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-attachment: fixed;
 }

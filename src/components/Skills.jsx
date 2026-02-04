@@ -1,75 +1,61 @@
-import { useState } from "react";
 import skillsData from "../data/skillsData.jsx";
-import AnimatedButton from "./AnimatedButton.jsx";
 
 const Skills = () => {
-    const [activeCategory, setActiveCategory] = useState(0);
+    // Flatten all skills from all categories into a single array
+    const allSkills = skillsData.categories.flatMap(category => category.skills);
 
     return (
         <section
             id="skills"
-            className="min-h-screen bg-gray-50 dark:bg-gray-900 py-20"
+            className="relative py-20 overflow-hidden"
         >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Accent Glow Effects */}
+            <div className="absolute top-0 left-1/3 w-96 h-96 bg-green-600/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute bottom-0 right-1/3 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
-                <div className="text-center mb-12" data-aos="fade-down">
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-4">
+                <div className="text-center mb-16" data-aos="fade-down">
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
                         {skillsData.title}
                     </h2>
-                    <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto">
                         {skillsData.subtitle}
                     </p>
                 </div>
 
-                {/* Category Tabs */}
-                <div className="flex flex-wrap justify-center gap-3 mb-12" data-aos="fade-up">
-                    {skillsData.categories.map((category, index) => (
-                        <AnimatedButton
-                            key={index}
-                            onClick={() => setActiveCategory(index)}
-                            variant="navigation"
-                            active={activeCategory === index}
-                            icon={category.icon}
-                            className="px-4 sm:px-6 py-2.5 sm:py-3"
-                        >
-                            {category.name}
-                        </AnimatedButton>
-                    ))}
-                </div>
-
-                {/* Skills Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {skillsData.categories[activeCategory].skills.map((skill, index) => (
+                {/* Unified Skills Grid */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 justify-center">
+                    {allSkills.map((skill, index) => (
                         <div
                             key={index}
-                            className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+                            className="group relative bg-white/5 backdrop-blur-sm border border-white/10 p-4 rounded-xl transition-all duration-300 hover:-translate-y-2 hover:bg-white/10 hover:border-white/20 flex flex-col items-center justify-center gap-3 h-full"
+                            data-aos="fade-up"
+                            data-aos-delay={index * 50}
                         >
-                            <div className="flex items-center justify-between mb-4">
-                                <div className="flex items-center gap-3">
-                                    <div
-                                        className="w-12 h-12 rounded-lg flex items-center justify-center text-2xl"
-                                        style={{ backgroundColor: `${skill.color}20`, color: skill.color }}
-                                    >
-                                        <i className={skill.icon}></i>
-                                    </div>
-                                    <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
-                                        {skill.name}
-                                    </h3>
-                                </div>
-                                <span className="text-sm font-bold text-gray-800 dark:text-white">
-                                    {skill.level}%
-                                </span>
-                            </div>
+                            {/* Hover Glow Effect */}
+                            <div
+                                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-xl"
+                                style={{ backgroundColor: skill.color }}
+                            ></div>
 
-                            {/* Progress Bar */}
-                            <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 overflow-hidden">
+                            <div className="relative z-10 flex flex-col items-center gap-4 w-full">
+                                {/* Icon Container */}
                                 <div
-                                    className="h-full rounded-full transition-all duration-1000 ease-out"
+                                    className="w-12 h-12 rounded-lg flex items-center justify-center text-3xl shadow-lg transition-transform duration-300 group-hover:scale-110"
                                     style={{
-                                        width: `${skill.level}%`,
-                                        backgroundColor: skill.color
+                                        backgroundColor: `${skill.color}15`,
+                                        color: skill.color,
+                                        boxShadow: `0 0 20px ${skill.color}30`
                                     }}
-                                ></div>
+                                >
+                                    <i className={skill.icon}></i>
+                                </div>
+
+                                {/* Skill Name */}
+                                <h3 className="text-sm font-semibold text-white font-mono text-center group-hover:text-white/90 transition-colors w-full break-words">
+                                    {skill.name}
+                                </h3>
                             </div>
                         </div>
                     ))}

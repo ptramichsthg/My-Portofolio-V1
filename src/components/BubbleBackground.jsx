@@ -24,11 +24,19 @@ const BubbleBackground = () => {
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = canvas.height + Math.random() * 100;
-                this.radius = Math.random() * 4 + 2;
-                this.speed = Math.random() * 1 + 0.5;
-                this.opacity = Math.random() * 0.5 + 0.3;
+                this.radius = Math.random() * 6 + 2;
+                this.speed = Math.random() * 1.5 + 0.5;
+                this.opacity = Math.random() * 0.4 + 0.2;
                 this.wobble = Math.random() * 2;
                 this.wobbleSpeed = Math.random() * 0.05;
+                // Random colors: blue, purple, cyan
+                const colors = [
+                    'rgba(59, 130, 246, ',    // blue-500
+                    'rgba(147, 51, 234, ',    // purple-600
+                    'rgba(6, 182, 212, ',     // cyan-500
+                    'rgba(139, 92, 246, ',    // violet-500
+                ];
+                this.color = colors[Math.floor(Math.random() * colors.length)];
             }
 
             update() {
@@ -44,9 +52,24 @@ const BubbleBackground = () => {
             }
 
             draw() {
+                // Outer glow
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius + 3, 0, Math.PI * 2);
+                ctx.fillStyle = `${this.color}${this.opacity * 0.3})`;
+                ctx.fill();
+                ctx.closePath();
+
+                // Main bubble
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+                ctx.fillStyle = `${this.color}${this.opacity})`;
+                ctx.fill();
+                ctx.closePath();
+
+                // Inner highlight
+                ctx.beginPath();
+                ctx.arc(this.x - this.radius * 0.3, this.y - this.radius * 0.3, this.radius * 0.4, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity * 0.6})`;
                 ctx.fill();
                 ctx.closePath();
             }
@@ -85,7 +108,7 @@ const BubbleBackground = () => {
         <canvas
             ref={canvasRef}
             className="fixed inset-0 pointer-events-none z-0"
-            style={{ opacity: 0.6 }}
+            style={{ opacity: 0.3 }}
         />
     );
 };

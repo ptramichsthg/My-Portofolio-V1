@@ -4,15 +4,19 @@ const Experience = () => {
     return (
         <section
             id="experience"
-            className="min-h-screen bg-white dark:bg-gray-800 py-20"
+            className="relative min-h-screen py-20 overflow-hidden"
         >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Accent Glow Effects */}
+            <div className="absolute top-0 right-1/3 w-96 h-96 bg-green-600/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute bottom-0 left-1/3 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-4">
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
                         {experienceData.title}
                     </h2>
-                    <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto">
                         {experienceData.subtitle}
                     </p>
                 </div>
@@ -20,7 +24,7 @@ const Experience = () => {
                 {/* Timeline */}
                 <div className="relative">
                     {/* Vertical Line */}
-                    <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gray-300 dark:bg-gray-600"></div>
+                    <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-white/30"></div>
 
                     {/* Experience Items */}
                     <div className="space-y-12">
@@ -32,14 +36,14 @@ const Experience = () => {
                             >
                                 {/* Content */}
                                 <div className="flex-1">
-                                    <div className="bg-gray-50 dark:bg-gray-900 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+                                    <div className="bg-white/15 backdrop-blur-sm border border-white/30 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                                         {/* Header */}
                                         <div className="flex flex-wrap items-start justify-between gap-2 mb-4">
                                             <div>
-                                                <h3 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white mb-1">
+                                                <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">
                                                     {exp.role}
                                                 </h3>
-                                                <p className="text-base sm:text-lg font-semibold text-gray-600 dark:text-gray-300">
+                                                <p className="text-base sm:text-lg font-semibold text-gray-300">
                                                     {exp.company}
                                                 </p>
                                             </div>
@@ -51,7 +55,7 @@ const Experience = () => {
                                         </div>
 
                                         {/* Meta Info */}
-                                        <div className="flex flex-wrap gap-4 mb-4 text-sm text-gray-600 dark:text-gray-400">
+                                        <div className="flex flex-wrap gap-4 mb-4 text-sm text-gray-400">
                                             <div className="flex items-center gap-1">
                                                 <i className="bx bx-briefcase"></i>
                                                 <span>{exp.type}</span>
@@ -67,20 +71,20 @@ const Experience = () => {
                                         </div>
 
                                         {/* Description */}
-                                        <p className="text-gray-700 dark:text-gray-300 mb-4">
+                                        <p className="text-gray-300 mb-4">
                                             {exp.description}
                                         </p>
 
                                         {/* Achievements */}
                                         <div className="mb-4">
-                                            <h4 className="text-sm font-semibold text-gray-800 dark:text-white mb-2">
+                                            <h4 className="text-sm font-semibold text-white mb-2">
                                                 Key Achievements:
                                             </h4>
                                             <ul className="space-y-1">
                                                 {exp.achievements.map((achievement, idx) => (
                                                     <li
                                                         key={idx}
-                                                        className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300"
+                                                        className="flex items-start gap-2 text-sm text-gray-300"
                                                     >
                                                         <i className="bx bx-check text-green-500 mt-0.5"></i>
                                                         <span>{achievement}</span>
@@ -94,7 +98,7 @@ const Experience = () => {
                                             {exp.technologies.map((tech, idx) => (
                                                 <span
                                                     key={idx}
-                                                    className="px-3 py-1 bg-gray-800 dark:bg-white text-white dark:text-gray-800 text-xs font-medium rounded-full"
+                                                    className="px-3 py-1 bg-blue-500/80 text-white text-xs font-medium rounded-full"
                                                 >
                                                     {tech}
                                                 </span>
@@ -104,7 +108,7 @@ const Experience = () => {
                                 </div>
 
                                 {/* Timeline Dot */}
-                                <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gray-800 dark:bg-white rounded-full border-4 border-white dark:border-gray-800 shadow-lg"></div>
+                                <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white rounded-full border-4 border-slate-900 shadow-lg"></div>
 
                                 {/* Spacer for alternating layout */}
                                 <div className="hidden md:block flex-1"></div>
