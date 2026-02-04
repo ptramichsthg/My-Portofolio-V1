@@ -10,9 +10,9 @@ const Contact = () => {
   return (
     <section id="contact" className="relative min-h-screen pb-20 pt-20 overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute top-20 left-0 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl animate-pulse pointer-events-none"></div>
+      <div className="absolute top-20 left-0 w-96 h-96 bg-pink-600/20 rounded-full blur-3xl animate-pulse pointer-events-none"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-pulse pointer-events-none" style={{ animationDelay: '1s' }}></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-pink-500/10 to-fuchsia-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title & Subtitle */}
@@ -58,14 +58,14 @@ const Contact = () => {
                     data-aos-delay={index * 100}
                   >
                     {/* Hover Glow Effect */}
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:to-purple-500/10 transition-all duration-300 pointer-events-none"></div>
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-pink-500/0 to-fuchsia-500/0 group-hover:from-pink-500/10 group-hover:to-fuchsia-500/10 transition-all duration-300 pointer-events-none"></div>
 
                     <div className="relative flex items-start gap-4 z-10">
-                      <div className="w-16 h-16 flex items-center justify-center shadow-2xl rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 text-white shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      <div className="w-16 h-16 flex items-center justify-center shadow-2xl rounded-xl bg-gradient-to-br from-pink-600 to-fuchsia-600 text-white shrink-0 group-hover:scale-110 transition-transform duration-300">
                         <i className={`${item.icon} text-2xl`} />
                       </div>
                       <div className="flex flex-col overflow-hidden">
-                        <span className="font-bold text-2xl leading-tight text-white group-hover:text-blue-300 transition-colors">{item.label}</span>
+                        <span className="font-bold text-2xl leading-tight text-white group-hover:text-pink-300 transition-colors">{item.label}</span>
                         <span className="text-sm text-gray-300 leading-snug mt-1">
                           {item.description}
                         </span>
@@ -82,35 +82,35 @@ const Contact = () => {
                 data-aos="fade-left"
               >
                 {/* Card Glow */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-2xl blur-xl opacity-50"></div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-pink-600/20 to-fuchsia-600/20 rounded-2xl blur-xl opacity-50"></div>
 
                 <div className="relative">
                   <h3 className="text-2xl font-bold mb-6 text-white flex items-center gap-3">
-                    <i className="bx bx-envelope text-2xl bg-gradient-to-br from-blue-500 to-purple-500 bg-clip-text text-transparent" />
+                    <i className="bx bx-envelope text-2xl bg-gradient-to-br from-pink-500 to-fuchsia-500 bg-clip-text text-transparent" />
                     Send Me a Message
                   </h3>
                   <form className="grid gap-5">
                     <div className="relative group">
-                      <i className="bx bx-user absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl group-focus-within:text-blue-400 transition-colors"></i>
+                      <i className="bx bx-user absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl group-focus-within:text-pink-400 transition-colors"></i>
                       <input
                         type="text"
                         placeholder="Your Name"
-                        className="w-full pl-12 pr-4 py-4 rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm text-white placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                        className="w-full pl-12 pr-4 py-4 rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm text-white placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all"
                       />
                     </div>
                     <div className="relative group">
-                      <i className="bx bx-envelope absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl group-focus-within:text-blue-400 transition-colors"></i>
+                      <i className="bx bx-envelope absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl group-focus-within:text-pink-400 transition-colors"></i>
                       <input
                         type="email"
                         placeholder="Your Email"
-                        className="w-full pl-12 pr-4 py-4 rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm text-white placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                        className="w-full pl-12 pr-4 py-4 rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm text-white placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all"
                       />
                     </div>
                     <div className="relative group">
-                      <i className="bx bx-message-square-dots absolute left-4 top-6 text-gray-400 text-xl group-focus-within:text-blue-400 transition-colors"></i>
+                      <i className="bx bx-message-square-dots absolute left-4 top-6 text-gray-400 text-xl group-focus-within:text-pink-400 transition-colors"></i>
                       <textarea
                         placeholder="Your Message"
-                        className="w-full pl-12 pr-4 py-4 rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm text-white placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
+                        className="w-full pl-12 pr-4 py-4 rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm text-white placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all resize-none"
                         rows="5"
                       />
                     </div>

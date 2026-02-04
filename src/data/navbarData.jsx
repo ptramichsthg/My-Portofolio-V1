@@ -3,7 +3,7 @@ const navbarData = [
   { id: "about", label: "About", icon: "bx-id-card" },
   { id: "projects", label: "Projects", icon: "bx-code-alt" },
   { id: "skills", label: "Skills", icon: "bx-bar-chart-alt-2" },
-  { id: "education", label: "Education", icon: "bx-book-reader" },
+  { id: "certificates", label: "Certifications", icon: "bx-certification" },
   { id: "testimonials", label: "Testimonials", icon: "bx-comment-detail" },
   { id: "contact", label: "Contact", icon: "bx-envelope" },
 ];

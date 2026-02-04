@@ -44,7 +44,9 @@ const Testimonials = () => {
 
     // Fetch testimonials dari Supabase saat komponen mount
     useEffect(() => {
-        fetchTestimonials();
+        // fetchTestimonials(); // Disabled as per user request to clear data
+        setTestimonials([]); // Start empty
+        setIsLoading(false);
     }, []);
 
     const fetchTestimonials = async () => {

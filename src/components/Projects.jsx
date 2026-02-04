@@ -37,8 +37,8 @@ const Projects = () => {
         >
 
             {/* Accent Glow Effects */}
-            <div className="absolute top-0 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
-            <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-green-600/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute top-0 right-1/4 w-96 h-96 bg-pink-600/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-fuchsia-600/10 rounded-full blur-3xl pointer-events-none"></div>
 
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
@@ -77,7 +77,7 @@ const Projects = () => {
                                 data-aos-delay={index * 100}
                             >
                                 {/* Project Image */}
-                                <div className="relative h-40 bg-gradient-to-br from-gray-800 to-gray-600 dark:from-gray-700 dark:to-gray-900 overflow-hidden group">
+                                <div className="relative h-40 bg-gradient-to-br from-pink-900/20 to-gray-900 overflow-hidden group">
                                     {/* Background Image */}
                                     <img
                                         src={project.image}
@@ -100,7 +100,7 @@ const Projects = () => {
                                 <div className="p-5">
                                     {/* Category Badge */}
                                     <div className="mb-2">
-                                        <span className="px-2.5 py-0.5 bg-blue-500/80 text-white text-xs font-medium rounded-full">
+                                        <span className="px-2.5 py-0.5 bg-pink-500/80 text-white text-xs font-medium rounded-full">
                                             {project.category}
                                         </span>
                                     </div>
@@ -120,13 +120,13 @@ const Projects = () => {
                                         {project.technologies.slice(0, 3).map((tech, idx) => (
                                             <span
                                                 key={idx}
-                                                className="px-2 py-1 bg-white/25 border border-white/40 text-gray-300 text-xs rounded"
+                                                className="px-2 py-1 bg-pink-500/10 border border-pink-500/30 text-pink-300 text-xs rounded-md"
                                             >
                                                 {tech}
                                             </span>
                                         ))}
                                         {project.technologies.length > 3 && (
-                                            <span className="px-2 py-1 bg-white/25 border border-white/40 text-gray-300 text-xs rounded">
+                                            <span className="px-2 py-1 bg-pink-500/10 border border-pink-500/30 text-pink-300 text-xs rounded-md">
                                                 +{project.technologies.length - 3}
                                             </span>
                                         )}

@@ -2,6 +2,7 @@ import aboutData from "../data/aboutData.jsx";
 import Tippy from '@tippyjs/react';
 import Swal from 'sweetalert2';
 import AnimatedButton from "./AnimatedButton.jsx";
+import ElectricBorder from "./ElectricBorder.jsx";
 
 
 const About = () => {
@@ -28,18 +29,28 @@ const About = () => {
 
                 {/* Content Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center py-12 min-h-[calc(100vh-5rem)]">
-                    {/* Profile Image */}
                     <div className="w-full flex justify-center lg:justify-start" data-aos="fade-right">
-                        <img
-                            src={aboutData.image}
-                            alt="About Me"
-                            className="w-full max-w-md rounded-xl shadow-lg object-cover 
-             border-8 border-white dark:border-gray-800 
-             hover:shadow-3xl hover:-translate-y-2 
-             transition-all duration-300"
-                        />
-
+                        <ElectricBorder
+                            color="#ec4899"
+                            speed={2}
+                            chaos={0.03}
+                            thickness={3}
+                            borderRadius={12}
+                            className="rounded-xl"
+                            style={{ borderRadius: 12 }}
+                        >
+                            <img
+                                src={aboutData.image}
+                                alt="About Me"
+                                className="w-full max-w-md rounded-xl shadow-lg object-cover 
+                 border-none
+                 hover:shadow-3xl hover:-translate-y-2 
+                 transition-all duration-300"
+                            />
+                        </ElectricBorder>
                     </div>
+
+
 
                     {/* Biodata Section */}
                     <div className="w-full text-white" data-aos="fade-left">
@@ -117,7 +128,7 @@ const About = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </section >
     );
 };
 

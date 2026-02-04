@@ -1,0 +1,86 @@
+.electric-border-container {
+    position: relative;
+    display: inline-block;
+}
+
+.electric-border-lines {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 2px solid transparent;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 1;
+    animation: electric-jitter 0.3s infinite alternate;
+    box-shadow: 0 0 10px var(--electric-color), 0 0 20px var(--electric-color);
+}
+
+.electric-border-lines::before,
+.electric-border-lines::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid var(--electric-color);
+    border-radius: inherit;
+    opacity: 0.5;
+    animation: electric-flash 2s infinite;
+}
+
+.electric-border-lines::before {
+    transform: translate(2px, 2px);
+    border-color: #fff;
+    opacity: 0.8;
+}
+
+.electric-border-lines::after {
+    transform: translate(-2px, -2px);
+}
+
+@keyframes electric-jitter {
+    0% {
+        clip-path: inset(10% 0 80% 0);
+        transform: skew(2deg);
+    }
+
+    20% {
+        clip-path: inset(80% 0 10% 0);
+        transform: skew(-2deg);
+    }
+
+    40% {
+        clip-path: inset(40% 0 40% 0);
+        transform: skew(1deg);
+    }
+
+    60% {
+        clip-path: inset(0 0 0 0);
+        transform: skew(0deg);
+    }
+
+    80% {
+        clip-path: inset(20% 0 60% 0);
+        transform: skew(-1deg);
+    }
+
+    100% {
+        clip-path: inset(60% 0 20% 0);
+        transform: skew(2deg);
+    }
+}
+
+@keyframes electric-flash {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}

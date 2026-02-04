@@ -51,8 +51,8 @@ const Home = () => {
       className="relative min-h-screen pt-20 overflow-hidden"
     >
       {/* Accent Glow Effects */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-pink-600/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-fuchsia-600/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-5rem)] py-12">
@@ -91,7 +91,7 @@ const Home = () => {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-12 h-12 bg-white/15 border border-white/30 text-white rounded-full flex items-center shadow-2xl justify-center hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:border-transparent transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                      className="w-12 h-12 bg-white/10 border border-white/20 text-white rounded-full flex items-center shadow-2xl justify-center hover:bg-pink-600 hover:border-transparent transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
                       aria-label={`Visit ${social.platform}`}
                     >
                       <i className={`${social.icon} text-xl`}></i>
@@ -158,14 +158,14 @@ const Home = () => {
               {homeData.stats.map((item, index) => (
                 <div
                   key={index}
-                  className="flex flex-col items-center text-center gap-2.5 bg-gradient-to-br from-white/20 to-white/10 border-2 border-white/30 backdrop-blur-md transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/30 hover:border-blue-400/50 shadow-xl p-3 rounded-xl group"
+                  className="flex flex-col items-center text-center gap-2 bg-white/5 backdrop-blur-md border border-white/10 p-4 rounded-xl transition-all duration-300 hover:bg-white/10 hover:border-pink-500/50 hover:-translate-y-1 hover:shadow-lg group"
                 >
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <i className={`${item.icon} text-xl text-white`}></i>
+                  <div className="w-10 h-10 bg-pink-500/10 rounded-lg flex items-center justify-center text-pink-500 group-hover:text-pink-400 transition-colors">
+                    <i className={`${item.icon} text-xl`}></i>
                   </div>
                   <div>
-                    <p className="font-bold text-white text-lg mb-1 group-hover:text-blue-300 transition-colors">{item.value}</p>
-                    <p className="text-xs text-gray-300 font-medium leading-tight">{item.label}</p>
+                    <p className="font-bold text-white text-lg mb-1">{item.value}</p>
+                    <p className="text-xs text-gray-400">{item.label}</p>
                   </div>
                 </div>
               ))}
@@ -174,12 +174,30 @@ const Home = () => {
           </div>
 
 
-          <div className="relative flex justify-center items-center" data-aos="fade-left">
-            <div className="relative z-10">
+          <div
+            className="relative flex justify-center items-center perspective-1000"
+            data-aos="fade-left"
+            onMouseMove={(e) => {
+              const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+              const x = (e.clientX - left - width / 2) / 25;
+              const y = (e.clientY - top - height / 2) / 25;
+              e.currentTarget.style.transform = `rotateY(${x}deg) rotateX(${-y}deg) scale(1.05)`;
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = `rotateY(0deg) rotateX(0deg) scale(1)`;
+            }}
+            style={{ transition: "transform 0.1s ease-out" }}
+          >
+            <div className="relative z-10 duration-500" style={{ transformStyle: "preserve-3d" }}>
+              <div
+                className="absolute inset-0 bg-pink-500 rounded-full blur-3xl opacity-20 animate-pulse"
+                style={{ transform: "translateZ(-50px)" }}
+              ></div>
               <img
                 src={homeData.img}
                 alt="Putra Michael Sitohang Profile"
-                className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 object-cover rounded-full shadow-2xl dark:shadow-gray-800 border-8 border-white dark:border-gray-800 hover:shadow-3xl hover:-translate-y-2 transition-all duration-300"
+                className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 object-cover rounded-full shadow-2xl dark:shadow-gray-800 border-8 border-white dark:border-gray-800 transition-all duration-300 pointer-events-none"
+                style={{ transform: "translateZ(50px)" }}
               />
             </div>
 
@@ -200,9 +218,10 @@ const Home = () => {
                 >
                   <div
                     className={`absolute ${positions[index % positions.length]
-                      } w-14 h-14 sm:w-18 sm:h-18 bg-gradient-to-br from-white/20 to-white/10 border-2 border-white/40 text-white rounded-2xl drop-shadow-2xl shadow-xl hover:shadow-2xl flex items-center justify-center hover:scale-110 hover:from-blue-500/30 hover:to-purple-500/30 hover:border-blue-400/60 hover:-translate-y-2 transition-all duration-300 animate-float cursor-pointer backdrop-blur-sm`}
+                      } w-14 h-14 sm:w-16 sm:h-16 bg-white/5 backdrop-blur-md border border-white/10 text-white rounded-2xl shadow-xl flex items-center justify-center hover:scale-110 hover:bg-white/10 hover:border-pink-500/50 hover:text-pink-500 hover:-translate-y-2 transition-all duration-300 animate-float cursor-pointer`}
                     style={{
                       animationDelay: `${index * 0.5}s`,
+                      transform: "translateZ(80px)"
                     }}
                   >
                     <i className={`${tech.icon} text-2xl sm:text-3xl`}></i>
@@ -210,8 +229,6 @@ const Home = () => {
                 </Tippy>
               );
             })}
-
-
           </div>
         </div>
 

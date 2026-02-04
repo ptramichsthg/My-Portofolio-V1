@@ -10,8 +10,8 @@ const Skills = () => {
             className="relative py-20 overflow-hidden"
         >
             {/* Accent Glow Effects */}
-            <div className="absolute top-0 left-1/3 w-96 h-96 bg-green-600/10 rounded-full blur-3xl pointer-events-none"></div>
-            <div className="absolute bottom-0 right-1/3 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute top-0 left-1/3 w-96 h-96 bg-pink-600/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute bottom-0 right-1/3 w-96 h-96 bg-fuchsia-600/10 rounded-full blur-3xl pointer-events-none"></div>
 
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}

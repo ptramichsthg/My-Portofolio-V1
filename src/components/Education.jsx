@@ -58,7 +58,7 @@ const Education = () => {
                                                 <span>GPA: {edu.gpa}</span>
                                             </div>
                                         </div>
-                                        <span className="inline-block px-3 py-1 bg-blue-500 text-white text-xs font-semibold rounded-full">
+                                        <span className="inline-block px-3 py-1 bg-pink-500 text-white text-xs font-semibold rounded-full">
                                             {edu.status}
                                         </span>
                                     </div>
@@ -71,7 +71,7 @@ const Education = () => {
                 {/* Certifications - Unified Premium Design */}
                 <div>
                     <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-                        <div className="p-2 bg-blue-600 rounded-lg shadow-lg shadow-blue-500/30">
+                        <div className="p-2 bg-pink-600 rounded-lg shadow-lg shadow-pink-500/30">
                             <i className="bx bxs-certification text-2xl text-white"></i>
                         </div>
                         Certifications
@@ -130,7 +130,7 @@ const Education = () => {
                                 <div className="relative p-6 z-10">
                                     {/* Issuer Info */}
                                     <div className="flex items-center gap-3 mb-3">
-                                        <div className="p-2 bg-blue-500/20 rounded-lg text-blue-400">
+                                        <div className="p-2 bg-pink-500/20 rounded-lg text-pink-500">
                                             <i className={`${cert.icon} text-xl`}></i>
                                         </div>
                                         <span className="text-sm font-medium text-blue-400 tracking-wide uppercase">
@@ -139,7 +139,7 @@ const Education = () => {
                                     </div>
 
                                     {/* Title */}
-                                    <h4 className="text-xl font-bold text-white mb-2 leading-tight group-hover:text-blue-600  transition-colors">
+                                    <h4 className="text-xl font-bold text-white mb-2 leading-tight group-hover:text-pink-600  transition-colors">
                                         {cert.title}
                                     </h4>
 

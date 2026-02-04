@@ -93,27 +93,27 @@
 
 /* Primary Variant */
 .animated-btn-primary {
-    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    background: #ec4899;
     color: white;
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
 }
 
 .animated-btn-primary:hover {
-    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
-    box-shadow: 0 6px 25px rgba(59, 130, 246, 0.6);
+    background: #db2777;
+    box-shadow: 0 6px 25px rgba(236, 72, 153, 0.6);
     transform: translateY(-2px);
 }
 
-/* Dark mode support */
+/* Dark mode support - same as primary since we are locking to dark */
 :root.dark .animated-btn-primary {
-    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    background: #ec4899;
     color: white;
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
 }
 
 :root.dark .animated-btn-primary:hover {
-    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
-    box-shadow: 0 6px 25px rgba(59, 130, 246, 0.6);
+    background: #db2777;
+    box-shadow: 0 6px 25px rgba(236, 72, 153, 0.6);
 }
 
 /* Secondary Variant */
@@ -146,18 +146,17 @@
     box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
 }
 
-/* Gradient Variant */
+/* Gradient Variant - Now Solid Blue */
 .animated-btn-gradient {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #ec4899;
     color: white;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-    background-size: 200% 200%;
-    animation: gradient-shift 3s ease infinite;
+    box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
 }
 
 .animated-btn-gradient:hover {
-    box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
+    box-shadow: 0 6px 25px rgba(236, 72, 153, 0.6);
     transform: translateY(-2px);
+    background: #db2777;
 }
 
 @keyframes gradient-shift {
@@ -172,16 +171,16 @@
     }
 }
 
-/* Glow Variant */
+/* Glow Variant - Now Solid Blue */
 .animated-btn-glow {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #ec4899;
     color: white;
-    box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+    box-shadow: 0 0 20px rgba(236, 72, 153, 0.5);
     animation: glow-pulse 2s ease-in-out infinite;
 }
 
 .animated-btn-glow:hover {
-    box-shadow: 0 0 30px rgba(102, 126, 234, 0.8);
+    box-shadow: 0 0 30px rgba(236, 72, 153, 0.8);
     transform: translateY(-2px);
 }
 
@@ -189,19 +188,19 @@
 
     0%,
     100% {
-        box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+        box-shadow: 0 0 20px rgba(236, 72, 153, 0.5);
     }
 
     50% {
-        box-shadow: 0 0 30px rgba(102, 126, 234, 0.8);
+        box-shadow: 0 0 30px rgba(236, 72, 153, 0.8);
     }
 }
 
-/* Magnetic Variant */
+/* Magnetic Variant - Now Solid Cyan/Blue mix or just Blue */
 .animated-btn-magnetic {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    background: #ec4899;
     color: white;
-    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+    box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -214,7 +213,7 @@
     content: '';
     position: absolute;
     inset: -2px;
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    background: #ec4899;
     border-radius: 0.75rem;
     opacity: 0;
     transition: opacity 0.3s ease;

@@ -42,10 +42,10 @@ a p {
 }
 
 .bg-grid-pattern {
-    background-color: #030014;
+    background-color: #1a050d;
     background-image:
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        linear-gradient(rgba(236, 72, 153, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(236, 72, 153, 0.15) 1px, transparent 1px);
     background-size: 40px 40px;
     background-attachment: fixed;
 }

@@ -21,7 +21,7 @@ const skillsData = {
             skills: [
                 { name: "AI Chatbot Development", icon: "bx bx-bot", level: 85, color: "#ff6b6b" },
                 { name: "AI Integration", icon: "bx bx-brain", level: 80, color: "#9b59b6" },
-                { name: "Natural Language Processing", icon: "bx bx-message-dots", level: 75, color: "#3498db" },
+
                 { name: "AI Automation", icon: "bx bx-cog", level: 80, color: "#e67e22" },
             ]
         },

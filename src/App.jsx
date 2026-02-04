@@ -5,7 +5,8 @@ import Navbar from './components/Navbar';
 import Home from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
-import Education from './components/Education';
+import Certificates from './components/Certificates';
+
 import Projects from './components/Projects';
 import Testimonials from './components/Testimonial';
 import Contact from './components/Contact';
@@ -30,7 +31,7 @@ function App() {
       <About />
       <Projects />
       <Skills />
-      <Education />
+      <Certificates />
       <Testimonials />
       <Contact />
       <Footer />
