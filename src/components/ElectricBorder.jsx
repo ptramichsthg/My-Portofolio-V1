@@ -171,7 +171,7 @@ const ElectricBorder = ({
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
-        const octaves = 10;
+        const octaves = 4; // Optimized from 10
         const lacunarity = 1.6;
         const gain = 0.7;
         const amplitude = chaos;
@@ -185,7 +185,8 @@ const ElectricBorder = ({
             const width = rect.width + borderOffset * 2;
             const height = rect.height + borderOffset * 2;
 
-            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            // Cap DPR at 1.5 for performance balance on mobile
+            const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
             canvas.width = width * dpr;
             canvas.height = height * dpr;
             canvas.style.width = `${width}px`;
@@ -204,7 +205,7 @@ const ElectricBorder = ({
             timeRef.current += deltaTime * speed;
             lastFrameTimeRef.current = currentTime;
 
-            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
             ctx.setTransform(1, 0, 0, 1, 0, 0);
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.scale(dpr, dpr);
@@ -223,7 +224,8 @@ const ElectricBorder = ({
             const radius = Math.min(borderRadius, maxRadius);
 
             const approximatePerimeter = 2 * (borderWidth + borderHeight) + 2 * Math.PI * radius;
-            const sampleCount = Math.floor(approximatePerimeter / 2);
+            // Optimize sampling: fewer points (divide by 4 instead of 2)
+            const sampleCount = Math.floor(approximatePerimeter / 4);
 
             ctx.beginPath();
 
